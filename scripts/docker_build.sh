@@ -1,0 +1,1 @@
+docker build -t Donations:latest -f MamisSolidarias.WebAPI.Donations/Dockerfile .
