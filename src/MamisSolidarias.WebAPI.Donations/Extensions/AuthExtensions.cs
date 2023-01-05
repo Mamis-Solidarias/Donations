@@ -22,8 +22,7 @@ internal static class AuthExtensions
             options.Key,
             tokenValidation: parameters => parameters.ValidIssuer = options.Issuer
         );
-        // TODO: Add Policy
-        // services.AddAuthorization(t => t.ConfigurePolicies(Services.Beneficiaries));
+        services.AddAuthorization(t => t.ConfigurePolicies(Services.Donations));
 
     }
 }

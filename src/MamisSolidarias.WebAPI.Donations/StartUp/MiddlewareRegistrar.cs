@@ -13,7 +13,7 @@ internal static class MiddlewareRegistrar
         app.UseDefaultExceptionHandler();
         app.UseAuthentication();
         app.UseAuthorization();
-        app.UseFastEndpoints();
+        app.UseFastEndpoints(t=> t.Endpoints.RoutePrefix = "donations");
         app.MapGraphQL();
         app.RunMigrations();
 
