@@ -2,6 +2,7 @@ using FastEndpoints;
 using FastEndpoints.Swagger;
 using MamisSolidarias.Infrastructure.Donations;
 using MamisSolidarias.Infrastructure.Donations.Models;
+using MamisSolidarias.Messages;
 using MamisSolidarias.WebAPI.Donations.CustomJsonConverters;
 using MamisSolidarias.WebAPI.Donations.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ internal static class MiddlewareRegistrar
         {
             t.Endpoints.RoutePrefix = "donations";
             t.Serializer.Options.Converters.Add(new EnumToStringJsonConverter<Currency>());
+            t.Serializer.Options.Converters.Add(new EnumToStringJsonConverter<Campaigns>());
         });
         app.MapGraphQL();
         app.RunMigrations();
