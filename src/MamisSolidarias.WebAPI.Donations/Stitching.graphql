@@ -1,0 +1,3 @@
+extend type MonetaryDonation {
+    donor: Donor @delegate(schema: "Donorsgql",path: "donor(id: $fields:donorId)")
+}

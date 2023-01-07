@@ -41,8 +41,8 @@ internal static class GraphQlExtensions
 
         builder.PublishSchemaDefinition(t =>
         {
-            // TODO: Set to new Service.Donations
             t.SetName($"{Services.Donations}gql");
+            t.AddTypeExtensionsFromFile("./Stitching.graphql");
             t.PublishToRedis(options.GlobalSchemaName,
                 sp => sp.GetRequiredService<ConnectionMultiplexer>()
             );
