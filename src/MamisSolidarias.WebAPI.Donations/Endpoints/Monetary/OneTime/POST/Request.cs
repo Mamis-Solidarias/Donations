@@ -1,3 +1,4 @@
+using FastEndpoints;
 using FluentValidation;
 using MamisSolidarias.Infrastructure.Donations.Models;
 
@@ -21,7 +22,7 @@ public class Request
     public Currency Currency { get; set; }
 }
 
-internal class RequestValidator : AbstractValidator<Request>
+internal class RequestValidator : Validator<Request>
 {
     public RequestValidator()
     {
