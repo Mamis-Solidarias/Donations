@@ -15,6 +15,7 @@ internal static class GraphQlExtensions
 
         var builder = services.AddGraphQLServer()
             .AddQueryType(t => t.Name("Query"))
+            .AddDonationsTypes()
             .AddInstrumentation(t =>
             {
                 t.Scopes = ActivityScopes.All;

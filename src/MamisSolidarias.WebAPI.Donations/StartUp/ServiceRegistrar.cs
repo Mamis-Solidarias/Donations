@@ -1,5 +1,6 @@
 using FastEndpoints;
 using FastEndpoints.Swagger;
+using Google.Protobuf.Reflection;
 using MamisSolidarias.WebAPI.Donations.Extensions;
 
 namespace MamisSolidarias.WebAPI.Donations.StartUp;
@@ -25,8 +26,11 @@ internal static class ServiceRegistrar
         builder.Services.AddDbContext(builder.Configuration, builder.Environment, loggerFactory);
 
         builder.Services.AddGraphQl(builder.Configuration, loggerFactory);
-        builder.Services.AddFastEndpoints();
-        builder.Services.AddAuth(builder.Configuration, loggerFactory);
+        builder.Services.AddFastEndpoints(t => 
+                t.SourceGeneratorDiscoveredTypes = DiscoveredTypes.All
+        );
+
+    builder.Services.AddAuth(builder.Configuration, loggerFactory);
 
         if (!builder.Environment.IsProduction())
             builder.Services.AddSwaggerDoc();
