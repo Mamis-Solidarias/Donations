@@ -1,5 +1,6 @@
 using HotChocolate.Diagnostics;
 using MamisSolidarias.Infrastructure.Donations;
+using MamisSolidarias.Utils.Security;
 using StackExchange.Redis;
 
 namespace MamisSolidarias.WebAPI.Donations.Extensions;
@@ -41,7 +42,7 @@ internal static class GraphQlExtensions
         builder.PublishSchemaDefinition(t =>
         {
             // TODO: Set to new Service.Donations
-            t.SetName("gql");
+            t.SetName($"{Services.Donations}gql");
             t.PublishToRedis(options.GlobalSchemaName,
                 sp => sp.GetRequiredService<ConnectionMultiplexer>()
             );
