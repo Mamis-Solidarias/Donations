@@ -14,7 +14,6 @@ namespace MamisSolidarias.WebAPI.Donations.Endpoints;
 
 public class Monetary_OneTime_Post_Test
 {
-    private DataFactory _dataFactory = null!;
     private DonationsDbContext _dbContext = null!;
     private Endpoint _endpoint = null!;
 
@@ -32,7 +31,6 @@ public class Monetary_OneTime_Post_Test
         _dbContext.Database.EnsureCreated();
 
         _endpoint = EndpointFactory.CreateEndpoint<Endpoint>(_dbContext);
-        _dataFactory = new DataFactory(_dbContext);
     }
 
     [TearDown]
