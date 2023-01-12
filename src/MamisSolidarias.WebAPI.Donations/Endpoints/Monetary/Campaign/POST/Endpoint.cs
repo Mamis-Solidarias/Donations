@@ -39,7 +39,6 @@ internal sealed class Endpoint: Endpoint<Request,Response>
     {
         return new()
         {
-            DonatedAt = DateTime.Now,
             DonorId = req.DonorId,
             Type = DonationType.Campaign,
             Amount = req.Amount,

@@ -32,7 +32,6 @@ internal sealed class Endpoint : Endpoint<Request, Response>
     private static MonetaryDonation Map(Request request)
         => new()
         {
-            DonatedAt = DateTime.Now,
             DonorId = request.DonorId,
             Type = DonationType.OneTime,
             Amount = request.Amount,
