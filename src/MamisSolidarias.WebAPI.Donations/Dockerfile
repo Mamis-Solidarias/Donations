@@ -16,6 +16,9 @@ RUN dotnet publish src/MamisSolidarias.WebAPI.Donations/MamisSolidarias.WebAPI.D
 FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine
 EXPOSE 80
 EXPOSE 443
+ENV OTEL_ATTRIBUTE_VALUE_LENGTH_LIMIT=4094
+# Enables the app to search for timezones based on ID
+RUN apk add --no-cache tzdata
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet","MamisSolidarias.WebAPI.Donations.dll"]
