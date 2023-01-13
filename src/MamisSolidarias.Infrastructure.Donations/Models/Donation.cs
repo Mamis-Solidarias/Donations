@@ -5,6 +5,8 @@ namespace MamisSolidarias.Infrastructure.Donations.Models;
 
 public abstract class Donation
 {
+    private static readonly TimeZoneInfo _timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("America/Buenos_Aires");
+        
     /// <summary>
     ///     Unique identifier
     /// </summary>
@@ -13,7 +15,7 @@ public abstract class Donation
     /// <summary>
     ///     Exact date and time of the donation in GMT+3
     /// </summary>
-    public DateTime DonatedAt { get; set; }
+    public DateTime DonatedAt { get; set; } = TimeZoneInfo.ConvertTime(DateTime.UtcNow, _timeZoneInfo);
 
     /// <summary>
     ///     Id of the donor, if it is not anonymous
@@ -35,7 +37,7 @@ public abstract class Donation
 public abstract class DonationConfigurator<T> : IEntityTypeConfiguration<T>
     where T : Donation
 {
-    private static readonly TimeZoneInfo _gmt3 = TimeZoneInfo.FindSystemTimeZoneById("Argentina Standard Time");
+    private static readonly TimeZoneInfo _gmt3 = TimeZoneInfo.FindSystemTimeZoneById("America/Buenos_Aires");
 
     public void Configure(EntityTypeBuilder<T> builder)
     {

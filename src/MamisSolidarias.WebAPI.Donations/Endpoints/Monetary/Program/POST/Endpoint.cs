@@ -33,7 +33,6 @@ internal sealed class Endpoint : Endpoint<Request, Response>
     {
         return new()
         {
-            DonatedAt = DateTime.Now,
             DonorId = request.DonorId,
             Motive = $"Donated {request.Amount} {request.Currency} for {request.Program}",
             Type = DonationType.Recurring,
