@@ -15,7 +15,7 @@ public abstract class Donation
     /// <summary>
     ///     Exact date and time of the donation in GMT+3
     /// </summary>
-    public DateTime DonatedAt { get; set; } = TimeZoneInfo.ConvertTime(DateTime.Now, _timeZoneInfo);
+    public DateTime DonatedAt { get; set; } = TimeZoneInfo.ConvertTime(DateTime.UtcNow, _timeZoneInfo);
 
     /// <summary>
     ///     Id of the donor, if it is not anonymous
