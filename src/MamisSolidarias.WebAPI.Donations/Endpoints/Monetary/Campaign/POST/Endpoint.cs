@@ -43,7 +43,7 @@ internal sealed class Endpoint: Endpoint<Request,Response>
             Type = DonationType.Campaign,
             Amount = req.Amount,
             Currency = req.Currency,
-            Motive = $"{req.Amount} {req.Currency} donation for {req.Campaign} campaign"
+            Motive = $"Donación de {req.Amount} {req.Currency} para la campaña {req.Campaign}"
         };
     }
     
