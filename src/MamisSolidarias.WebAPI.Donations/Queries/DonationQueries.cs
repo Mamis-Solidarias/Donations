@@ -24,7 +24,7 @@ public class DonationQueries
 	    
 	    if (filter?.Query is not null)
 	    {
-		    query = query.Where(t => t.Motive.Contains(filter.Query));
+		    query = query.Where(t => t.Motive.ToLower().Contains(filter.Query.ToLower()));
 	    }
 	    
 	    if (filter?.From is not null)
