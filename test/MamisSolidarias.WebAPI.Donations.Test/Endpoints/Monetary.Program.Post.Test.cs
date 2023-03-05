@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using MamisSolidarias.Infrastructure.Donations;
 using MamisSolidarias.Infrastructure.Donations.Models;
+using MamisSolidarias.Messages;
 using MamisSolidarias.Utils.Test;
 using MamisSolidarias.WebAPI.Donations.Endpoints.Monetary.Program.POST;
 using MamisSolidarias.WebAPI.Donations.Utils;

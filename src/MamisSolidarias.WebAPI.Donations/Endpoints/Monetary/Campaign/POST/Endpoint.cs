@@ -49,6 +49,6 @@ internal sealed class Endpoint: Endpoint<Request,Response>
     
     private static DonationAddedToCampaign Map(Request req,Guid donationId)
     {
-        return new(donationId,req.DonorId ,req.ParticipantId, req.CampaignId, req.Campaign);
+        return new(donationId,req.DonorId ,req.ParticipantId, req.CampaignId, req.Campaign,req.Amount, req.Currency);
     }
 }

@@ -1,3 +1,4 @@
+using MamisSolidarias.Messages;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace MamisSolidarias.Infrastructure.Donations.Models;

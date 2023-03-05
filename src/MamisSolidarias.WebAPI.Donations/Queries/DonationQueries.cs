@@ -2,12 +2,25 @@ using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Types;
 using MamisSolidarias.Infrastructure.Donations;
 using MamisSolidarias.Infrastructure.Donations.Models;
+using MamisSolidarias.Messages;
+using Microsoft.EntityFrameworkCore;
 
 namespace MamisSolidarias.WebAPI.Donations.Queries;
 
 [ExtendObjectType("Query")]
 public class DonationQueries
 {
+    
+    [Authorize(Policy = "CanRead")]
+    public async Task<Dictionary<Currency,decimal>> GetTotalDonations(DonationsDbContext dbContext, Guid[] donationIds, CancellationToken token)
+    {
+        return await dbContext.MonetaryDonations
+            .Where(t => donationIds.Contains(t.Id))
+            .GroupBy(t => t.Currency)
+            .Select(t => new {Currency= t.Key, Amount = t.Sum(d => d.Amount)})
+            .ToDictionaryAsync(t => t.Currency, t => t.Amount, token);
+    }
+    
 
     [Authorize(Policy = "CanRead")]    
     [UseFirstOrDefault]
