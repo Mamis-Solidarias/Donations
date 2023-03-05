@@ -21,7 +21,7 @@
         <PackageReference Include="HotChocolate.Types.Analyzers" Version="12.18.0" />
         <PackageReference Include="MamisSolidarias.Messages" Version="1.0.6" />
         <PackageReference Include="MamisSolidarias.Utils" Version="1.5.3" />
-        <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.10" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="8.0.13" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
