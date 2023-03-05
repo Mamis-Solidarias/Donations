@@ -2,6 +2,7 @@ using System;
 using Bogus;
 using MamisSolidarias.Infrastructure.Donations;
 using MamisSolidarias.Infrastructure.Donations.Models;
+using MamisSolidarias.Messages;
 
 namespace MamisSolidarias.WebAPI.Donations.Utils;
 

@@ -1,5 +1,5 @@
 using FastEndpoints;
-using MamisSolidarias.Infrastructure.Donations.Models;
+using MamisSolidarias.Messages;
 
 namespace MamisSolidarias.WebAPI.Donations.Endpoints.Monetary.Program.POST;
 
