@@ -7,7 +7,6 @@ namespace MamisSolidarias.WebAPI.Donations.Extensions;
 
 internal static class GraphQlExtensions
 {
-    private sealed record GraphQlOptions(string GlobalSchemaName);
 
     public static void AddGraphQl(this IServiceCollection services, IConfiguration configuration,
         ILoggerFactory loggerFactory)
@@ -30,7 +29,7 @@ internal static class GraphQlExtensions
             .AddSorting()
             .RegisterDbContext<DonationsDbContext>()
             .InitializeOnStartup();
-        
+
         var options = configuration.GetSection("GraphQl").Get<GraphQlOptions>();
 
         if (options is null)
@@ -48,4 +47,6 @@ internal static class GraphQlExtensions
             );
         });
     }
+
+    private sealed record GraphQlOptions(string GlobalSchemaName);
 }
