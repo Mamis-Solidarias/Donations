@@ -36,6 +36,6 @@ internal sealed class Endpoint : Endpoint<Request, Response>
             Type = DonationType.OneTime,
             Amount = request.Amount,
             Currency = request.Currency,
-            Motive = $"Donación única por {request.Amount} {request.Currency}"
+            Motive = $"Donación única"
         };
 }
