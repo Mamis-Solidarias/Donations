@@ -34,7 +34,7 @@ internal sealed class Endpoint : Endpoint<Request, Response>
         return new()
         {
             DonorId = request.DonorId,
-            Motive = $"Donación de {request.Amount} {request.Currency} para {request.Program}",
+            Motive = $"{request.Program}",
             Type = DonationType.Recurring,
             Amount = request.Amount,
             Currency = request.Currency
